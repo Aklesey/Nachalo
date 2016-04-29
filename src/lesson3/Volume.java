@@ -12,13 +12,13 @@ public class Volume {
         float r = input.nextFloat();
         System.out.println("Введите высоту: ");
         float h = input.nextFloat();
-        double  v, s;
-        final double pi= Math.PI;
+        double v, s;
+        final double pi = Math.PI;
         v = pi * Math.pow(r, 2);
-        s= 2*pi*r*h + 2*pi*Math.pow(r, 2);
+        s = 2 * pi * r * h + 2 * pi * Math.pow(r, 2);
 
-        System.out.println(v);
-        System.out.println(s);
+        System.out.println("Объем цЫлиндра равен: " + v);
+        System.out.println("Площадь: " + s);
     }
 
 }
