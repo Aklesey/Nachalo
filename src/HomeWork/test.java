@@ -11,21 +11,21 @@ public class test {
         System.out.println("Введите целое число :");
         int n = input.nextInt();
         int count = 1;
-        int b = n;
-        do{
-            if (n<=0){
-                if (n==0) {
+        do {
+            if (n <= 0) {
+                if (n == 0) {
                     System.out.println("факториал введеного вами числа = 1");
                     break;
-                } else{
-                    System.out.println("факториал введеного вами числа несуществует");
+                } else {
+                    System.out.println("факториал введеного вами числа не существует");
                     break;
                 }
-            }else{
-              count=n*(n-1);
+            } else {
+                count *= n--;
             }
         }
-        while (count == n);
+        while (n > 0);
+        System.out.println(count);
     }
 }
 
