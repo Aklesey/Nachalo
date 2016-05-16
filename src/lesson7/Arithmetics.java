@@ -36,8 +36,7 @@ public class Arithmetics {
         System.out.print("Ввдите арифметическую операцию ");
         for (; ; ) {
             System.out.print("(+, -, *, /)");
-            input = new Scanner(System.in);
-            String operand = input.nextLine();
+            String operand = input.next();
             switch (operand) {
                 case "+":
                     result = add(a, b);
