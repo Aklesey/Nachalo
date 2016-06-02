@@ -1,5 +1,6 @@
 package newHome.homework7;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -27,7 +28,14 @@ public class Main {
                 }
 
             }
+
         }
+        Arrays.sort(array);
+        for (int j = 0; j < array.length; j++) {
+            System.out.print(array[j] + " ");
+
+        }
+
 //        int count = 0;
 //        for (int i = 0; i < array.length; i++) {
 //            for (int j = 0; j < array.length; j++) {
