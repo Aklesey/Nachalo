@@ -10,8 +10,8 @@ public class Parity_2 {
         Scanner input = new Scanner(System.in);
         System.out.println("Введите целое число");
         float n = input.nextFloat();
-        boolean b = (n % 2 == 0);
+//        boolean b = (n % 2 == 0);
         System.out.println("Сейчас мы проверим Ваше число на четность");
-        System.out.println(b);
+        System.out.println(n % 2 == 0);
     }
 }

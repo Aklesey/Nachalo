@@ -9,10 +9,10 @@ public class DeMorganComparison {
         boolean b = false;
 
         // Условие до применения теоремы Де Моргана.
-        if (a | b)
-            System.out.println("A | B = " + (a | b));
+        if ((a | b) && !(!a & !b) )
+            System.out.println("A | B = !(!A & !B) ");
         else
-            System.out.println("A | B = " + (a | b));
+            System.out.println("A | B != !(!A & !B)");
 
         // Условие после применения теоремы Де Моргана.
         if (!(!a & !b))

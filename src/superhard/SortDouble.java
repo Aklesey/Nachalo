@@ -9,10 +9,10 @@ public class SortDouble {
     public static void main(String[] args) {
 
         int myArray[][];
-        myArray = new int[(int) (Math.random() *10)][(int) (Math.random() *10)];
+        myArray = new int[(int) (Math.random() *100)][(int) (Math.random() *100)];
         for (int i = 0; i < myArray.length; i++) {
             for (int j = 0; j < myArray[i].length; j++) {
-                myArray[i][j] = (int)(Math.random() * 100);
+                myArray[i][j] = (int)(Math.random() * 10000);
             }
         }
         printArray(myArray);

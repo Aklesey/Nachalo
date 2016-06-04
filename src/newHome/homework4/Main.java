@@ -16,7 +16,7 @@ public class Main {
         for (int i = 0; i < myArray2.length; i++) {
             myArray2[i] = myArray[i];
         }
-        for (int i = 0; i < myArray.length ; i++) {
+        for (int i = 0; i < myArray.length; i++) {
             System.out.println(myArray[i] + "   " + myArray2[i]);
         }
     }

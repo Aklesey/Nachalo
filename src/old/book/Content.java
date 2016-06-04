@@ -5,7 +5,8 @@ package old.book;
  */
 public class Content {
     public String content;
-    public void show () {
+
+    public void show() {
 
         System.out.println("Содержание данной книги " + content);
     }

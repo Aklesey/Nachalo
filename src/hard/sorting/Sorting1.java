@@ -21,15 +21,15 @@ public class Sorting1 {
         for (int i = 0; i < myArray.length; i++) {
             System.out.print(myArray[i] + " ");
         }
-        System.out.println( "");
-        for(int i = 1; i < myArray.length; i++){
+        System.out.println("");
+        for (int i = 1; i < myArray.length; i++) {
             int currElem = myArray[i];
             int prevKey = i - 1;
-            while(prevKey >= 0 && myArray[prevKey] > currElem){
-                myArray[prevKey+1] = myArray[prevKey];
+            while (prevKey >= 0 && myArray[prevKey] > currElem) {
+                myArray[prevKey + 1] = myArray[prevKey];
                 prevKey--;
             }
-            myArray[prevKey+1] = currElem;
+            myArray[prevKey + 1] = currElem;
         }
         for (int i = 0; i < myArray.length; i++) {
             System.out.print(myArray[i] + " ");

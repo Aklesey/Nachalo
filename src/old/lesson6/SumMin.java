@@ -5,16 +5,16 @@ package old.lesson6;
  */
 public class SumMin {
     public static void main(String[] args) {
-        int a=10, b=54;
+        int a = 10, b = 54;
         int sum = 0;
         for (int j = a; j <= b; j++) {
             sum = sum + j;
         }
         System.out.println(sum);
-        for (int j= a; j<=b; j++){
+        for (int j = a; j <= b; j++) {
             if (j % 2 == 0) {
                 continue;
-            }else{
+            } else {
                 System.out.println(j);
             }
         }

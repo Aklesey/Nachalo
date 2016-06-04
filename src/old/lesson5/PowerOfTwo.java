@@ -15,16 +15,15 @@ public class PowerOfTwo {
         int count = 0;
         for (char element : myString.toCharArray()) {
             if (element == '1') count++;
+
         }
         if (count == 1) {
             power = number;
-           for (i=1; power != 2; i++){
-               power=power/2;
-           }
+            for (i = 1; power != 2; i++) {
+                power = power / 2;
+            }
             System.out.println("Введеное вами число " + number + " является степенью дваойки");
             System.out.println("Другими словами " + number + "=2^" + i);
         } else System.out.println("Введеное вами число " + number + " НЕ является степенью дваойки");
-
-
     }
 }
