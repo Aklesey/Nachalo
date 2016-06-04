@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * Created by user on 31.05.2016.
  */
-public class febonachi {
+public class Febonachi {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.print("введите сколько чисел фебоначче вывести: ");

@@ -29,20 +29,13 @@ public class Main {
                 }
 
             }
+
+        }
+        Arrays.sort(array);
+        for (int j = 0; j < array.length; j++) {
+            System.out.print(array[j] + " ");
+
         }
 
-
-//        int count = 0;
-//        for (int i = 0; i < array.length; i++) {
-//            for (int j = 0; j < array.length; j++) {
-//                if(array[i].length()<count) continue;
-//                if (array[i].length()==array[j].length())
-//                    System.out.print(array[j] + " ");
-//
-//            }
-//            if(array[i].length()!=i) continue;
-//            System.out.println();
-//
-//        }
     }
 }
