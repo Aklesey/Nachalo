@@ -12,7 +12,7 @@ public enum Color {
     ORANGE ("оранжевый"),
     YELLOW("желтый"),
     GREEN ("зеленый"),
-    BLUE("соний"),
+    BLUE("синий"),
     PURPLE ("фиолетовый");
     String value;
 
