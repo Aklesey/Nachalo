@@ -1,6 +1,6 @@
 package homeFrom01_06_2016.vaz;
 
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * Created by user on 05.06.2016.
@@ -31,10 +31,17 @@ public class Main {
         }
         System.out.println(autoprom.get(temp));
         System.out.println("colors");
-        for (int i = 0; i < autoprom.size(); i++) {
-            switch (autoprom.get(i).getColor()) {
+        Collections.sort(autoprom);
+        for (Auto auto:autoprom) {
+            System.out.println(auto.getColor());
+        }
 
-            }
+
+        for (int i = 0; i < autoprom.size(); i++) {
+
+//            switch (autoprom.get(i).getColor()) {
+//
+//            }
         }
 
     }

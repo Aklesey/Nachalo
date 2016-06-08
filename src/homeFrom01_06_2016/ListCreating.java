@@ -17,13 +17,17 @@ public class ListCreating {
         list.add(new Fabric(12118951, 16816.6121));
         Fabric a = new Fabric(999999999, 123.25);
         list.add(a);
-        ListIterator iter;
-        iter = list.listIterator();
-        while (iter.hasNext()) {
+//        ListIterator iter;
+//        iter = list.listIterator();
+//        while (iter.hasNext()) {
+//
+//            System.out.println(iter.next().toString() + " ");
+//        }
+//        System.out.println();
 
-            System.out.println(iter.next().toString() + " ");
+        for (Fabric f:list) {
+            System.out.println(f.toString());
         }
-        System.out.println();
 
     }
 }

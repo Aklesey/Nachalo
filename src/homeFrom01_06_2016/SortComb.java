@@ -8,7 +8,7 @@ public class SortComb {
     public static void main(String[] args) {
 
         int[] myArray;
-        myArray = new int[50000];
+        myArray = new int[500];
         for (int i = 0; i < myArray.length; i++) {
             myArray[i] =(int)( Math.random()*50000);
         }

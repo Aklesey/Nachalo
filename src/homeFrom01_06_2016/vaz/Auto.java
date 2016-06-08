@@ -9,7 +9,7 @@ import static homeFrom01_06_2016.vaz.Color.randomCollor;
  * Created by Aklesey on 02.06.2016.
  */
 
-public class Auto {
+public class Auto implements Comparable<Auto>{
     private String name;
     private TypeAuto typeAuto;
     private String owner;
@@ -307,9 +307,14 @@ public class Auto {
         long ms;
 
         rnd = new Random();
-        ms = -946771200000L + (Math.abs(rnd.nextLong()) % (76L * 365 * 24 * 60 * 60 * 1000));
+        ms = (Math.abs(rnd.nextLong()) % (46L * 365 * 24 * 60 * 60 * 1000));
 
         return dt = new Date(ms);
 
+    }
+
+    @Override
+    public int compareTo(Auto o) {
+        return this.color.compareTo(o.color);
     }
 }
