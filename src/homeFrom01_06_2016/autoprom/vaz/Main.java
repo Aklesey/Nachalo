@@ -1,6 +1,10 @@
-package homeFrom01_06_2016.vaz;
+package homeFrom01_06_2016.autoprom.vaz;
 
-import java.util.*;
+import homeFrom01_06_2016.autoprom.comparator.AutoNumberComparator;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * Created by user on 05.06.2016.
@@ -32,17 +36,28 @@ public class Main {
         System.out.println(autoprom.get(temp));
         System.out.println("colors");
         Collections.sort(autoprom);
-        for (Auto auto:autoprom) {
-            System.out.println(auto.getColor());
+
+        for (Auto auto : autoprom) {
+            System.out.println(auto.getPrice());
+        }
+        System.out.println();
+        System.out.println();
+
+        Collections.sort(autoprom, new Comparator<Auto>() {
+            @Override
+            public int compare(Auto o1, Auto o2) {
+                return Integer.compare(o1.getPrice(), o2.getPrice());
+            }
+        });
+        for (Auto auto : autoprom) {
+            System.out.println(auto.getPrice());
+        }
+        Collections.sort(autoprom, new AutoNumberComparator());
+        System.out.println();
+        for (Auto auto : autoprom) {
+            System.out.println(auto.getNumber());
         }
 
-
-        for (int i = 0; i < autoprom.size(); i++) {
-
-//            switch (autoprom.get(i).getColor()) {
-//
-//            }
-        }
 
     }
 }

@@ -1,15 +1,15 @@
-package homeFrom01_06_2016.vaz;
+package homeFrom01_06_2016.autoprom.vaz;
 
 import java.util.Date;
 import java.util.Random;
 
-import static homeFrom01_06_2016.vaz.Color.randomCollor;
+import static homeFrom01_06_2016.autoprom.vaz.Color.randomCollor;
 
 /**
  * Created by Aklesey on 02.06.2016.
  */
 
-public class Auto implements Comparable<Auto>{
+public class Auto implements Comparable<Auto> {
     private String name;
     private TypeAuto typeAuto;
     private String owner;
@@ -227,13 +227,10 @@ public class Auto implements Comparable<Auto>{
     }
 
     public Auto(String owner) {
-
         this.owner = owner;
         number = count++;
         typeAuto = TypeAuto.randomType();
         color = randomCollor();
-
-
         price = 100000 + (int) (Math.random() * ((10000000 - 100000) + 1));
         completed = Math.random() < 0.5;
         manufacturerName = Fabric.randomFabric();
@@ -245,15 +242,15 @@ public class Auto implements Comparable<Auto>{
     @Override
     public String toString() {
         return
-                "Name: " + name +", "+ "\t" +
-                        "typeAuto: " + typeAuto +", "+ "\t" +
-                        "owner:' " + owner +", "+ '\'' + "\t" +
-                        "number: " + number +", "+ "\t" +
-                        "color: " + color.getValue() +", "+ "\t" +
-                        "manufacturerName: " + manufacturerName +", "+ "\t" +
-                        "completed: " + completed +", "+"\t" +
-                        "description: '" + description + '\'' +", "+ "\t" +
-                        "price: " + price +", "+ "\t" +
+                "Name: " + name + ", " + "\t" +
+                        "typeAuto: " + typeAuto + ", " + "\t" +
+                        "owner:' " + owner + ", " + '\'' + "\t" +
+                        "number: " + number + ", " + "\t" +
+                        "color: " + color.getValue() + ", " + "\t" +
+                        "manufacturerName: " + manufacturerName + ", " + "\t" +
+                        "completed: " + completed + ", " + "\t" +
+                        "description: '" + description + '\'' + ", " + "\t" +
+                        "price: " + price + ", " + "\t" +
                         "data: " + data;
     }
 
@@ -297,24 +294,20 @@ public class Auto implements Comparable<Auto>{
         return data;
     }
 
-    public static int getCount() {
-        return count;
-    }
-
     public Date randomeDate() {
         Random rnd;
         Date dt;
         long ms;
 
         rnd = new Random();
-        ms = (Math.abs(rnd.nextLong()) % (46L * 365 * 24 * 60 * 60 * 1000));
+        ms = (Math.abs(rnd.nextLong()) % (47L * 365 * 24 * 60 * 60 * 1000));
 
         return dt = new Date(ms);
 
     }
 
-    @Override
-    public int compareTo(Auto o) {
-        return this.color.compareTo(o.color);
-    }
+    public int compareTo(Auto o) { return this.owner.compareTo(o.owner); }
+
+
+
 }

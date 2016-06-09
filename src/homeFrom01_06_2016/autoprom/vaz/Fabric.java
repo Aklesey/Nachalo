@@ -1,4 +1,4 @@
-package homeFrom01_06_2016.vaz;
+package homeFrom01_06_2016.autoprom.vaz;
 
 import java.util.Arrays;
 import java.util.Collections;
