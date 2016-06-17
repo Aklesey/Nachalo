@@ -1,5 +1,10 @@
 package homeFrom01_06_2016.autoprom.vaz;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Random;
 
@@ -9,16 +14,30 @@ import static homeFrom01_06_2016.autoprom.vaz.Color.randomCollor;
  * Created by Aklesey on 02.06.2016.
  */
 
-public class Auto implements Comparable<Auto> {
-    private String name;
+@XmlRootElement(name = "auto")
+@XmlAccessorType(XmlAccessType.FIELD)
+
+public class Auto implements Comparable<Auto>, Serializable {
+
+    @XmlElement
+    protected String name;
+    @XmlElement
     private TypeAuto typeAuto;
-    private String owner;
+    @XmlElement
+    private String owner = "";
+    @XmlElement
     private int number;
+    @XmlElement
     private Color color;
+    @XmlElement
     private Fabric manufacturerName;
+    @XmlElement
     private Boolean completed;
+    @XmlElement
     private String description;
+    @XmlElement
     private int price;
+    @XmlElement
     private Date data;
     private static int count = 0000001;
 
@@ -239,19 +258,21 @@ public class Auto implements Comparable<Auto> {
         description = typeAuto.name();
     }
 
+
+
     @Override
     public String toString() {
-        return
-                "Name: " + name + ", " + "\t" +
-                        "typeAuto: " + typeAuto + ", " + "\t" +
-                        "owner:' " + owner + ", " + '\'' + "\t" +
-                        "number: " + number + ", " + "\t" +
-                        "color: " + color.getValue() + ", " + "\t" +
-                        "manufacturerName: " + manufacturerName + ", " + "\t" +
-                        "completed: " + completed + ", " + "\t" +
-                        "description: '" + description + '\'' + ", " + "\t" +
-                        "price: " + price + ", " + "\t" +
-                        "data: " + data;
+        return String.format(
+                "Name: %-10s " +
+                        "typeAuto: %-13s " +
+                        "owner:' %-7s " +
+                        "number: %-7d " +
+                        "color: %-6s " +
+                        "manufacturerName: %-7s " +
+                        "completed: %-5s " +
+                        "description: %-13s " +
+                        "price: %-8d " +
+                        "data: %-1s ", name, typeAuto, owner, number, color, manufacturerName, completed, description, price, data);
     }
 
     public String getName() {

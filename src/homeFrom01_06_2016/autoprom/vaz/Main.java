@@ -2,15 +2,21 @@ package homeFrom01_06_2016.autoprom.vaz;
 
 import homeFrom01_06_2016.autoprom.comparator.AutoNumberComparator;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 
 /**
  * Created by user on 05.06.2016.
  */
 public class Main {
-    public static void main(String[] args) {
+//    private static  autoprom;
+
+    public static void main(String[] args) throws IOException, ClassNotFoundException, JAXBException {
 
 
         ArrayList<Auto> autoprom = new ArrayList<Auto>();
@@ -43,12 +49,7 @@ public class Main {
         System.out.println();
         System.out.println();
 
-        Collections.sort(autoprom, new Comparator<Auto>() {
-            @Override
-            public int compare(Auto o1, Auto o2) {
-                return Integer.compare(o1.getPrice(), o2.getPrice());
-            }
-        });
+        Collections.sort(autoprom, (o1, o2) -> Integer.compare(o1.getPrice(), o2.getPrice()));
         for (Auto auto : autoprom) {
             System.out.println(auto.getPrice());
         }
@@ -57,7 +58,62 @@ public class Main {
         for (Auto auto : autoprom) {
             System.out.println(auto.getNumber());
         }
+        serialize(autoprom, "autoprom");
+        ArrayList<Auto> newAutoprom = deserialize("autoprom");
+        for (Auto s :
+                newAutoprom) {
+            System.out.println(s);
+        }
+        marshaling(new Marshaling(autoprom));
+        ArrayList<Auto> arrayList = unmarshallingEx();
+        for (Auto sas :
+                arrayList) {
+            System.out.println(sas);
+        }
 
 
+    }
+
+    private static void serialize(ArrayList<Auto> myArray, String fileName) throws IOException {
+        FileOutputStream fileOut =
+                new FileOutputStream(fileName + ".ser");
+        ObjectOutputStream out = new ObjectOutputStream(fileOut);
+        out.writeObject(myArray);
+        out.close();
+        fileOut.close();
+        System.out.printf("Serialized data is saved in %-15s\n", fileName);
+
+    }
+
+    private static ArrayList<Auto> deserialize(String fileName)
+            throws IOException, ClassNotFoundException {
+
+        FileInputStream fileIn = new FileInputStream(fileName + ".ser");
+        ObjectInputStream in = new ObjectInputStream(fileIn);
+        ArrayList<Auto> newArray = (ArrayList<Auto>) in.readObject();
+        in.close();
+        fileIn.close();
+
+        System.out.printf("Deserialized %-15s\n", fileName);
+        return newArray;
+
+    }
+
+
+    private static void marshaling(Marshaling marsh) throws JAXBException {
+
+        JAXBContext ctx = JAXBContext.newInstance(Marshaling.class);
+        Marshaller msh = ctx.createMarshaller();
+        msh.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+        msh.marshal(marsh, System.out);
+        msh.marshal(marsh, new File("autoprom.xml"));
+    }
+    public static ArrayList<Auto> unmarshallingEx() throws JAXBException {
+        File file = new File("autoprom.xml");
+        JAXBContext jaxbContext = JAXBContext.newInstance(Marshaling.class);
+
+        Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+        Marshaling array = (Marshaling) unmarshaller.unmarshal(file);
+        return array.getAutoprom();
     }
 }

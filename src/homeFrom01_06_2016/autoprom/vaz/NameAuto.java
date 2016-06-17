@@ -17,7 +17,7 @@ public enum  NameAuto {
     VOLKSVAGEN ("Volkswagen"),
     HONDA ("Honda"),
     BMW ("BMW"),
-    MERCEDES_BENZ ("Mercedes-Benz"),
+    MERCEDES_BENZ ("Mercedes"),
     TOYOTA ("Toyota");
     String value;
 
