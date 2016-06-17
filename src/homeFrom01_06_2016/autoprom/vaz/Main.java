@@ -1,6 +1,7 @@
 package homeFrom01_06_2016.autoprom.vaz;
 
 import homeFrom01_06_2016.autoprom.comparator.AutoNumberComparator;
+import org.codehaus.jackson.map.ObjectMapper;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -66,10 +67,10 @@ public class Main {
         }
         marshaling(new Marshaling(autoprom));
         ArrayList<Auto> arrayList = unmarshallingEx();
-        for (Auto sas :
-                arrayList) {
+        for (Auto sas : arrayList) {
             System.out.println(sas);
         }
+        json(new Marshaling(autoprom));
 
 
     }
@@ -115,5 +116,19 @@ public class Main {
         Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
         Marshaling array = (Marshaling) unmarshaller.unmarshal(file);
         return array.getAutoprom();
+    }
+    private static void json(Marshaling marsh){
+        ObjectMapper mapper = new ObjectMapper();
+
+        try{
+            mapper.writeValue(new File("autoprom.json"),marsh);
+            System.out.println(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(marsh));
+            System.out.println("\nReading from file:");
+
+            Marshaling newMars = mapper.readValue(new File("autoprom.json"), Marshaling.class);
+            System.out.println(newMars);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

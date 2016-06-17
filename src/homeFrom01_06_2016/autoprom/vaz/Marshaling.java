@@ -1,5 +1,8 @@
 package homeFrom01_06_2016.autoprom.vaz;
 
+import org.codehaus.jackson.annotate.JsonProperty;
+
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import java.util.ArrayList;
@@ -9,7 +12,9 @@ import java.util.ArrayList;
  */
 @XmlRootElement
 @XmlSeeAlso(value = {Auto.class})
-public class Marshaling extends Auto {
+public class Marshaling{
+    @XmlElement
+    @JsonProperty
     private ArrayList<Auto> autoprom;
 
     public Marshaling(){}

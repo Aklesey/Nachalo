@@ -1,5 +1,7 @@
 package homeFrom01_06_2016.autoprom.vaz;
 
+import org.codehaus.jackson.annotate.JsonProperty;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -13,31 +15,29 @@ import static homeFrom01_06_2016.autoprom.vaz.Color.randomCollor;
 /**
  * Created by Aklesey on 02.06.2016.
  */
-
 @XmlRootElement(name = "auto")
 @XmlAccessorType(XmlAccessType.FIELD)
 
 public class Auto implements Comparable<Auto>, Serializable {
-
-    @XmlElement
+    @JsonProperty   @XmlElement
     protected String name;
-    @XmlElement
+    @XmlElement    @JsonProperty
     private TypeAuto typeAuto;
-    @XmlElement
+    @XmlElement  @JsonProperty
     private String owner = "";
-    @XmlElement
+    @XmlElement  @JsonProperty
     private int number;
-    @XmlElement
+    @XmlElement  @JsonProperty
     private Color color;
-    @XmlElement
+    @XmlElement  @JsonProperty
     private Fabric manufacturerName;
-    @XmlElement
+    @XmlElement  @JsonProperty
     private Boolean completed;
-    @XmlElement
+    @XmlElement  @JsonProperty
     private String description;
-    @XmlElement
+    @XmlElement  @JsonProperty
     private int price;
-    @XmlElement
+    @XmlElement  @JsonProperty
     private Date data;
     private static int count = 0000001;
 
