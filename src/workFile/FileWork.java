@@ -19,7 +19,7 @@ public class FileWork {
     }
 
     public static void deleting(String folder, String fileName, String expansion) {
-        if (expansion(fileName, expansion)) {
+        if (isExpansion(fileName, expansion)) {
             if (folder.isEmpty()) folder = System.getProperty("user.dir");
             File file = new File(folder + separator + fileName + '.' + expansion);
             if (file.delete()) {
@@ -36,8 +36,8 @@ public class FileWork {
     }
 
     public static void rename(String folder, String fileName, String expansion, String newFileName) {
-
-        if (expansion(fileName, expansion)) {
+        if (new File(folder).exists()) {
+        if (isExpansion(fileName, expansion)) {
             File file1 = new File(folder + separator + fileName + '.' + expansion);
             File file2 = new File(folder + separator + newFileName + '.' + expansion);
             if (folder.isEmpty()) {
@@ -51,10 +51,13 @@ public class FileWork {
                 System.out.println((char) 27 + "[31mRename failed. " + (char) 27 + "[0m");
             }
         }
+        } else {
+            System.out.println((char) 27 + "[31mRename failed. " + (char) 27 + "[0m");
+        }
     }
 
     public static void deleteByFilter(String folder, String expansion) {
-        if (expansion(expansion)) {
+        if (isExpansion(expansion)) {
 
             if (folder.isEmpty()) folder = System.getProperty("user.dir") + separator;
             File dir = new File(folder);
@@ -76,7 +79,8 @@ public class FileWork {
     }
 
     public static void reading(String folder, String fileName, String expansion) {
-        if (expansion(fileName, expansion)) {
+        if (new File(folder).exists()&&new File(fileName).exists()) {
+        if (isExpansion(expansion)) {
             try {
                 String str = folder + separator + fileName + '.' + expansion;
                 File file = new File(str);
@@ -92,6 +96,8 @@ public class FileWork {
                 e.printStackTrace();
             }
         }
+        } else {    System.out.println((char) 27 + "[31mReading failed. " + (char) 27 + "[0m");
+        }
     }
 
     public static void written(String fileName, String expansion, String writesOne) {
@@ -99,7 +105,7 @@ public class FileWork {
     }
 
     public static void written(String folder, String fileName, String expansion, String writesOne) {
-        if (expansion(fileName, expansion)) {
+        if (isExpansion(fileName, expansion)) {
             String str = folder + separator + fileName + '.' + expansion;
             File dir = new File(folder);
             dir.mkdir();
@@ -122,7 +128,7 @@ public class FileWork {
     }
 
     public static void append(String folder, String fileName, String expansion, String app) {
-        if (expansion(fileName, expansion)) {
+        if (isExpansion(fileName, expansion)) {
 
             String str = folder + separator + fileName + '.' + expansion;
             File dir = new File(folder);
@@ -158,7 +164,7 @@ public class FileWork {
     }
 
     public static void copyPast(String folder, String destinationFolder, String fileName, String expansion) {
-        if (expansion(fileName, expansion)) {
+        if (isExpansion(fileName, expansion)) {
 
             if (new File(folder + separator + fileName + '.' + expansion).exists()) {
                 File dir = new File(destinationFolder);
@@ -192,7 +198,7 @@ public class FileWork {
     }
 
     private static void copyS(String folder, String destinationFolder, String fileName, String expansion) {
-        if (expansion(fileName, expansion)) {
+        if (isExpansion(fileName, expansion)) {
 
             File dir;
             if (destinationFolder.isEmpty()) dir = new File(System.getProperty("user.dir") + separator);
@@ -218,18 +224,18 @@ public class FileWork {
         }
     }
 
-    private static boolean expansion(String expansion) {
+    private static boolean isExpansion(String expansion) {
         return Inspection.expansion(expansion);
     }
 
-    private static boolean expansion(String fileName, String expansion) {
+    private static boolean isExpansion(String fileName, String expansion) {
         return Inspection.expansion(expansion) && Inspection.format(fileName);
     }
 
     private static void creator(String folder, String fileName, String expansion) {
         File dir = new File(System.getProperty("user.dir") + separator + folder);
         dir.mkdir();
-        if (expansion(fileName, expansion)) {
+        if (isExpansion(fileName, expansion)) {
             try {
                 File file = new File(dir, fileName + '.' + expansion);
                 if (file.createNewFile()) {
@@ -269,7 +275,7 @@ public class FileWork {
     }
 
     public static void sotr(String folder, String expansion) {
-        if (expansion(expansion)) {
+        if (isExpansion(expansion)) {
 
             File dir = new File(folder);
             if (dir.exists()) {
