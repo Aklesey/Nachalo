@@ -1,5 +1,6 @@
 package workFile;
 
+import static org.junit.Assert.*;
 /**
  * Created by user on 21.06.2016.
  */

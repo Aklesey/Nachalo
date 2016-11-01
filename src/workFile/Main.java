@@ -25,5 +25,6 @@ public class Main {
         FileWork.rename("", "fileTXT", "txt", "trahtenberg");
         FileWork.reading("jiagh", "olo_lo5", "txt");
         FileWork.deleteByFilter("", "docx");
+        System.out.println("----Process finished ------");
     }
 }
